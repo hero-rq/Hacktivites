@@ -1,0 +1,34 @@
+나름 가설을 세워서 접근했다 
+<img src="/change_password?userid=admin"/>을 flag로 해서 (POST) 보내면 
+("/change_password")함수에 나와있는 대로 비밀번호가 변경될 거라고 생각했다 
+그렇게 비밀번호만 변경되면 로그인해서 admin권한을 획득하면 된다고 생각했다 
+그래서 admin으로 하기 전에 guest로 실험을 해봤다 
+guest로 맨 먼저 로그인을 해봤더니 주어진 비밀번호대로 잘 되었다 
+그리고 그 상태로 다시 guest로 로그인을 했더니 sessionid만 바뀌고 잘 로그인이
+되는 것을 확인했다  자 이제 작전 개시 ! <img src="/change_password?userid=guest"/>를
+다시 POST방식으로 보내보았다 그러나 여전히 guest로 잘 로그인이 되는 것을 확인했다 
+guest로 로그인 된 상태에서 ("/change_password")함수를 실행시키면 guest/guest그대로 
+로그인이 안 된다는 것을 확인했으므로 위의 방식으로 메세지를 보내는 것으로는 
+값이 변화되지 않았다는 것을 이번 실험으로 알 수 있었다 단순히 저렇게 POST방식으로 
+값이 변화되지도 않고 비밀번호도 변경되지 않는다면 위의 가설을 통하지 않는다는 것이 
+명백하다  <img src="/change_password?username=guest"/>으로 바꾸어도 마찬가지였다. 
+
+session_id = os.urandom(16).hex()    os.urandom(16) 값이 너무 크므로 브루트 포스를 
+사용하는 문제 역시 아니다 
+
+*admin으로 로그인하면 flag를 확보할 수 있다는 것은 확실하다 
+따라서 이 문제의 포인트는 csrf를 이용하여 admin으로 로그인하는 
+방법을 찾을 수 있냐는 것이다 
+
+<img src="/change_password?username=admin&pw=1234"/>
+느낌이 여기서 크게 벗어나지 않는 거 같다   답이 이와 매우 유사할 것이다 
+그니까 본질적인 부분은 분명히 이와 일치할 것이다 ㅇㅅㅇ 
+-> 다행히 나의 추리는 맞았다. 기본적인 페이로드를 구성하는 건 아주 쉬웠으나 
+중요한 부분은 디테일이었다. CSRF 강의를 보면서 
+             to_user = request.args.get('to')
+	amount = int(request.args.get('amount'))
+/sendmoney?to=dreamhack&amount=1337 
+위의 파이썬 ' ' 표기에 맞춰서 페이로드를 구성해야 정확한 답을 얻을 수 있다는 것을 알았기에 
+맞출 수 있었다 password라는 건 주어진 문제에 나와있는 함수로 보았을 때 
+pw = request.args.get("pw", "") 이렇게 표기되어 있다 
+따라서 pw로 명확히 구분해서 써주어야 정확한 값이 나오는 것이다. 
