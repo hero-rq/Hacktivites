@@ -1,0 +1,39 @@
+해당 워게임에 들어가면 드림이가 망치를 들고 있는 거밖에 나오지 않는다 
+http://host1.dreamhack.games:13040/image.jsp?file=working.png
+소스코드를 확인해보면 이미지 하면서 뒤에 내용이 붙는데 
+유일한 어택 벡터라는 것을 알 수 있다 
+파일 = 하면서 내용이 붙는 것이기 때문에 
+자신이 원하는 값을 붙여서 플래그를 추적하는 것이라는 점을 알 수 있다 
+
+실제로 버프 스위트로 이런 식으로 구성하면 
+GET /image.jsp?file=../../../../../../../../../../../etc/hosts HTTP/1.1
+
+
+127.0.0.1	localhost localhost.localdomain
+::1	localhost localhost.localdomain
+127.0.1.1 localhost localhost keen_bassi
+얘네가 출력된다 
+
+다음의 페이로드는 스스로의 힘으로 구성했는데 
+RUN rm -rf /usr/local/tomcat/webapps/ROOT/
+COPY flag /flag
+COPY ROOT.war /usr/local/tomcat/webapps/ROOT.war
+COPY tomcat-users.xml /usr/local/tomcat/conf/tomcat-users.xml
+주어진 파일을 바탕으로 생각해보니 (역시 도커 파일도 중요한 단서가 된다는 것을 배울 수 있었다 
+도커 파일에는 이 내용이 명시되어 있지만 단순 etc/passwd는 중요 어택 벡터임에도 이 내용이 표시 되어 있지 않다)
+/image.jsp?file=../../../../../../../../../../../usr/local/tomcat/conf/tomcat-users.xml
+이렇게 값을 넣었을 때 패스워드를 얻을 수 있음을 직감할 수 있었다 
+user username="tomcat" password="P2assw0rd_4_t0mC2tM2nag3r31337" 
+이런 식으로 아이디와 패스워드를 확보한 후에 
+/manager/html로 들어갔다 (아파치 톰캣) 그리고 위의 아이디와 패스워드로 로그인했다
+그 이후에는 deploy하는 부분이 있어 (파일 다운로드)
+웹셀을 실행시킬 수 있는 파일을 넣으면 충분히 공략할 수 있다고 판단했고 
+웹셀 파일은 안전하게 깃헙에서 구했다 최대한 안전한 루트로 웹셀을 확보하고 
+(웹셀 파일은 https://github.com/BustedSec/webshell/blob/master/webshell.war그나마 여기서 
+얻는 게 안전하다) 
+deploy했다 그러나 아무 반응이 없어서 뭔가 잘못된 건가 생각했는데 
+알고봤더니 /webshell만 주소에 붙여주면 되는 간단한 거였다 
+뭐지 뭐지 하면서 뭔가 다른 걸 쳐주어야 되는 건가 계속 생각했는데 
+웹 내용을 자세히 읽어보니 어 뭔가 이게 url 주소에 나오는 디테일 같은데 하는 생각이 들어서 
+쳐주니 실제로 웹쉘 페이지가 나왔고 그 페이지에서 
+/flag를 쳐주니 명령어가 실행되어 flag를 얻을 수 있었다 
