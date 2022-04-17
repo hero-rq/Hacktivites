@@ -1,18 +1,3 @@
-#include <stdio.h>
-
-int main()
-{
-    int num1, num2, num3;   
-
-    num1 = 100;    // 변수에 값 넣기
-    num2 = 200;
-    num3 = 300;
-
-    printf("%d %d %d\n", num1, num2, num3);    // 변수에 저장된 값을 출력
-
-    return 0;
-}
-
 .LC0:
         .string "%d %d %d\n"
 main:
