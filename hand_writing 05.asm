@@ -1,17 +1,3 @@
-#include <stdio.h>
- 
-int main()
-{
-    int num1 = 23;
- 
-    printf("%d\n", num1 == 22);    
-    printf("%d\n", num1 != 78);     
-    printf("%d\n", num1 >= 21);    
-    printf("%d\n", num1 <= 12);    
- 
-    return 0;
-}
-
 .LC0:
         .string "%d\n"
 main:
