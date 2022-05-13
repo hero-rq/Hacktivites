@@ -43,4 +43,4 @@ ISBN 9791137281592
 더 알고 싶으신 분은 이 책을 참고해주세요  
 => 블록체인 이해를 통한 올바른 암호화폐 투자 전략 
 
-Author : YOUNG WOONG CHO 
+Author : YOUNG WOONG CHO  (제가 썼습니다)
