@@ -60,8 +60,10 @@
 이건 경향성과 관련이 있기 때문이다. 단기간에 가까워질수록 암호화폐 등락은 랜덤워크와 비슷해졌다. 장기간으로 변수가 늘어날수록 그 해당 암호화폐의 기반과의 연관성이 높아졌다. 
 그건 위에서 설명한 기반에 가장 훌륭한 프로세스를 구성하고 있는 이더리움이 가장 높은 투자수익률을 올렸다는 것으로 증명할 수 있다. 
 
-
 Title : BlockChain and Cryptocurrency
+
 a publishing house : Bookk Publisher
+
 ISBN : 9791137281592
+
 Author : ME
