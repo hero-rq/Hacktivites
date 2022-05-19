@@ -54,6 +54,9 @@ xss랑 비슷한 측면이 있으니 해결방식도 비슷하다고 생각할 �
 
   
 Title : Basic Lectures for White Hackers 
-a publishing house : Bookk
+
+a publishing house : Bookk Publisher
+
 isbn : 9791137283008
+
 Author : ME 
