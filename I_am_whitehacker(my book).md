@@ -37,3 +37,11 @@ console.log(subResult);
 console.log(divResult);
 
 제가 직접 짠 간단한 계산기입니다. 매우 쉬운 예시이기 때문에 별다른 설명은 하지 않겠습니다. 
+
+Title : Basic Lectures for White Hackers
+
+a publishing house : Bookk Publisher
+
+isbn : 9791137283008
+
+Author : ME
