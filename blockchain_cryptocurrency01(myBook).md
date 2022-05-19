@@ -35,6 +35,9 @@
 얘기했던 이 가설이 충분히 타당성 있는 명제라는 것을 알 수 있다. 
 
 Title : BlockChain and Cryptocurrency
+
 a publishing house : Bookk Publisher
+
 ISBN : 9791137281592
+
 Author : ME
