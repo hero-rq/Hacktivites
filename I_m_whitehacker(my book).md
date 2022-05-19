@@ -58,3 +58,11 @@ Content-Type: text/html
 다음에 헤더 부분을 보면 누구에게 보내는 내용인지, 어떤 언어를 사용했는지 등 통신에 아주 기본이 되는 정보들이 들어갑니다. 그리고 응답의 바디 부분을 보면
 <!DOCTYPE html>로 서버가 해당 내용을 응답response 해주었음을 명확히 확인할 수 있습니다. (여기에 나오는 구체적인 값 중 일부는 일부러 아무 값들이나 적었습니다. 
 왜냐하면 구체적인 데이터 값보다 데이터 형식이 더 중요하기 때문입니다.)
+
+Title : Basic Lectures for White Hackers
+
+a publishing house : Bookk Publisher
+
+isbn : 9791137283008
+
+Author : ME
