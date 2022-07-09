@@ -1,4 +1,5 @@
 ![s 01](https://user-images.githubusercontent.com/80503808/178090455-0ba87ef6-6584-4556-84f3-55e77b413b14.png)
+
 upx 패킹되어 있군요 
 패킹된 것을 풀어주는 것이 가장 기본적인 순서겠죠? 
 
